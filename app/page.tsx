@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { LazyReelVideo } from "@/components/lazy-reel-video";
 
 const services = [
   {
@@ -65,17 +66,17 @@ export default function Home() {
           Triller Media
         </a>
 
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        >
-          <source src="/reel%201%20.mp4" type="video/mp4" />
-        </video>
+              {/* Background Video */}
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="absolute inset-0 h-full w-full object-cover opacity-30"
+              >
+                <source src="/reel%20hero%20page.mp4" type="video/mp4" />
+              </video>
 
         {/* Overlay for text readability */}
         <div className="absolute inset-0 bg-background/50 md:bg-background/40" />
@@ -262,16 +263,11 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="group relative overflow-hidden rounded-lg bg-card"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full object-cover"
-                >
-                  <source src="/reel%201%20.mp4" type="video/mp4" />
-                </video>
+                <LazyReelVideo
+                  src="/reel%201%20new.mp4"
+                  poster="/thumbnail-1.png"
+                  className="h-full w-full min-h-[300px]"
+                />
               </motion.div>
 
               {/* Reel 2 */}
@@ -282,16 +278,11 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="group relative overflow-hidden rounded-lg bg-card"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full object-cover"
-                >
-                  <source src="/reel%202.mp4" type="video/mp4" />
-                </video>
+                <LazyReelVideo
+                  src="/reel%202%20new.mp4"
+                  poster="/thumbnail-2.png"
+                  className="h-full w-full min-h-[300px]"
+                />
               </motion.div>
 
               {/* Reel 3 */}
@@ -302,16 +293,11 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="group relative overflow-hidden rounded-lg bg-card"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full object-cover"
-                >
-                  <source src="/reel%203.mp4" type="video/mp4" />
-                </video>
+                <LazyReelVideo
+                  src="/reel%203%20new.mp4"
+                  poster="/thumbnail-3.png"
+                  className="h-full w-full min-h-[300px]"
+                />
               </motion.div>
             </div>
           </motion.div>
