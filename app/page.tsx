@@ -205,10 +205,6 @@ export default function Home() {
               <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Services
               </h2>
-              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-                We offer comprehensive creative solutions designed to elevate your
-                brand and presence in the digital world.
-              </p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
@@ -254,9 +250,6 @@ export default function Home() {
               <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Work
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Showcasing successful projects, collaborations, and design work.
-              </p>
             </div>
 
             {/* Reel Grid */}
