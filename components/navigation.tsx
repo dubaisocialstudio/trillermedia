@@ -58,7 +58,7 @@ export function Navigation() {
           <a
             href="#home"
             onClick={(e) => handleClick(e, "#home")}
-            className="text-lg md:text-xl font-semibold tracking-tight text-background drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] md:text-foreground md:drop-shadow-none"
+            className="text-lg md:text-xl font-semibold tracking-tight text-foreground"
           >
             Triller Media
           </a>
