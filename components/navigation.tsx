@@ -52,13 +52,13 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 md:border-b md:border-border/40 md:bg-background/80 md:backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 md:h-20 items-center justify-between">
           <a
             href="#home"
             onClick={(e) => handleClick(e, "#home")}
-            className="text-xl font-semibold tracking-tight"
+            className="text-lg md:text-xl font-semibold tracking-tight text-background drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] md:text-foreground md:drop-shadow-none"
           >
             Triller Media
           </a>
@@ -94,11 +94,6 @@ export function Navigation() {
                 </a>
               );
             })}
-          </div>
-
-          {/* Mobile menu placeholder */}
-          <div className="md:hidden">
-            <button className="text-foreground">Menu</button>
           </div>
         </div>
       </div>

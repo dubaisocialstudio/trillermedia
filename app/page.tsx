@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { LazyVideo } from "@/components/lazy-video";
 
 const services = [
   {
@@ -55,20 +56,15 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="relative flex min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-6 sm:px-8">
+      <section id="home" className="relative flex min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-6 sm:px-8 -mt-16 md:mt-0 pt-16 md:pt-0">
         {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <LazyVideo
+          src="/reel%201%20.mp4"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
-        >
-          <source src="/reel%201%20.mp4" type="video/mp4" />
-        </video>
+        />
 
         {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-background/50 md:bg-background/40" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl">
           <motion.div
@@ -81,20 +77,20 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+              className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] md:drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
             >
               We make{" "}
-              <span className="text-[#A8C5A4]">brands</span> and{" "}
-              <span className="text-[#A8C5A4]">creators</span>{" "}
+              <span className="text-[#A8C5A4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">brands</span> and{" "}
+              <span className="text-[#A8C5A4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">creators</span>{" "}
               <span className="text-foreground">look how they</span>{" "}
-              <span className="italic text-[#A8C5A4]">deserve</span> to.
+              <span className="italic text-[#A8C5A4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">deserve</span> to.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl"
+              className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
             >
               Triller Media builds personal brands, UGC content, and digital
               experiences that stand out.
@@ -258,15 +254,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="group relative overflow-hidden rounded-lg bg-card"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <LazyVideo
+                  src="/reel%201%20.mp4"
                   className="h-full w-full object-cover"
-                >
-                  <source src="/reel%201%20.mp4" type="video/mp4" />
-                </video>
+                />
               </motion.div>
 
               {/* Reel 2 */}
@@ -277,15 +268,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="group relative overflow-hidden rounded-lg bg-card"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <LazyVideo
+                  src="/reel%202.mp4"
                   className="h-full w-full object-cover"
-                >
-                  <source src="/reel%202.mp4" type="video/mp4" />
-                </video>
+                />
               </motion.div>
 
               {/* Reel 3 */}
@@ -296,15 +282,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="group relative overflow-hidden rounded-lg bg-card"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <LazyVideo
+                  src="/reel%203.mp4"
                   className="h-full w-full object-cover"
-                >
-                  <source src="/reel%203.mp4" type="video/mp4" />
-                </video>
+                />
               </motion.div>
             </div>
           </motion.div>
