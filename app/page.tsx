@@ -59,7 +59,8 @@ export default function Home() {
         {/* Mobile: Triller Media logo over video */}
         <a
           href="#home"
-          className="md:hidden absolute top-4 left-6 text-lg font-semibold tracking-tight text-foreground z-50"
+          className="md:hidden absolute top-4 left-4 sm:left-6 text-lg font-semibold tracking-tight text-foreground z-50 py-2 px-3 -mx-3 -my-2 touch-manipulation"
+          aria-label="Triller Media Home"
         >
           Triller Media
         </a>
@@ -104,7 +105,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
+              className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl text-muted-foreground drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
             >
               Triller Media builds personal brands, UGC content, and digital
               experiences that stand out.
@@ -131,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="mx-auto max-w-4xl px-6 py-24 sm:px-8">
+      <section id="about" className="mx-auto max-w-4xl px-6 py-12 md:py-24 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,12 +145,12 @@ export default function Home() {
               <MapPin className="h-4 w-4" />
               <span>Dubai, UAE</span>
             </div>
-            <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               About Triller Media
             </h2>
           </div>
 
-          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+          <div className="space-y-6 text-base md:text-lg leading-relaxed text-muted-foreground">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="border-y border-border/40 bg-muted/20 py-24">
+      <section id="services" className="border-y border-border/40 bg-muted/20 py-12 md:py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -201,7 +202,7 @@ export default function Home() {
             className="space-y-16"
           >
             <div className="space-y-4 text-center">
-              <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Services
               </h2>
               <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -220,7 +221,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: service.delay }}
-                    className="group relative rounded-lg border border-border/40 bg-card p-8 transition-all hover:border-border hover:shadow-lg"
+                    className="group relative rounded-lg border border-border/40 bg-card p-6 md:p-8 transition-all hover:border-border hover:shadow-lg"
                   >
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
                       <Icon className="h-6 w-6 text-accent-foreground" />
@@ -240,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* Work Section */}
-      <section id="work" className="border-y border-border/40 bg-muted/20 py-24">
+      <section id="work" className="border-y border-border/40 bg-muted/20 py-12 md:py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -250,7 +251,7 @@ export default function Home() {
             className="space-y-16"
           >
             <div className="space-y-4 text-center">
-              <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Work
               </h2>
               <p className="text-lg text-muted-foreground">
@@ -259,7 +260,7 @@ export default function Home() {
             </div>
 
             {/* Reel Grid */}
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {/* Reel 1 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -273,7 +274,7 @@ export default function Home() {
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   className="h-full w-full object-cover"
                 >
                   <source src="/reel%201%20.mp4" type="video/mp4" />
@@ -293,7 +294,7 @@ export default function Home() {
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   className="h-full w-full object-cover"
                 >
                   <source src="/reel%202.mp4" type="video/mp4" />
@@ -313,7 +314,7 @@ export default function Home() {
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   className="h-full w-full object-cover"
                 >
                   <source src="/reel%203.mp4" type="video/mp4" />
@@ -325,7 +326,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="mx-auto max-w-3xl px-6 py-24 sm:px-8">
+      <section id="contact" className="mx-auto max-w-3xl px-6 py-12 md:py-24 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -334,7 +335,7 @@ export default function Home() {
           className="space-y-16"
         >
           <div className="space-y-6 text-center">
-            <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Contact
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -409,11 +410,11 @@ export default function Home() {
                 />
               </div>
 
-              <div className="flex justify-end pt-2">
+              <div className="flex justify-center md:justify-end pt-2">
                 <Button
                   type="submit"
                   size="lg"
-                  className="group h-14 gap-2 rounded-full px-8 text-base font-medium"
+                  className="group w-full md:w-auto h-14 gap-2 rounded-full px-8 text-base font-medium"
                 >
                   Send Message
                   <Mail className="h-4 w-4 transition-transform group-hover:translate-x-1" />

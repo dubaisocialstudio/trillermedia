@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Triller Media | Creative Agency Dubai",
   description: "We make brands and creators look how they deserve to. Triller Media builds personal brands, UGC content, and digital experiences that stand out.",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
