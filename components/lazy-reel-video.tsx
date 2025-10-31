@@ -62,33 +62,33 @@ export function LazyReelVideo({
   }, [shouldLoad, autoPlay]);
 
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
-      {!shouldLoad && poster && (
+    <div ref={containerRef} className={`relative w-full h-full ${className}`}>
+      {/* Always show thumbnail/poster initially */}
+      {poster && (
         <img
           src={poster}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${shouldLoad && isLoaded ? "opacity-0" : "opacity-100"}`}
           loading="lazy"
         />
       )}
-      {!shouldLoad && !poster && (
-        <div className="h-full w-full bg-muted/30 animate-pulse" />
+      {!poster && !shouldLoad && (
+        <div className="absolute inset-0 h-full w-full bg-muted/30 animate-pulse" />
       )}
-      {shouldLoad && (
-        <video
-          ref={videoRef}
-          autoPlay={autoPlay}
-          loop={loop}
-          muted={muted}
-          playsInline={playsInline}
-          preload="none"
-          className={`h-full w-full object-cover ${!isLoaded && poster ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
-          onLoadedData={() => setIsLoaded(true)}
-          poster={poster}
-        >
-          <source src={src} type="video/mp4" />
-        </video>
-      )}
+      {/* Always render video element, just control loading */}
+      <video
+        ref={videoRef}
+        autoPlay={shouldLoad ? autoPlay : false}
+        loop={loop}
+        muted={muted}
+        playsInline={playsInline}
+        preload={shouldLoad ? "auto" : "none"}
+        className="absolute inset-0 h-full w-full object-cover"
+        poster={poster}
+        onLoadedData={() => setIsLoaded(true)}
+      >
+        {shouldLoad && <source src={src} type="video/mp4" />}
+      </video>
     </div>
   );
 }

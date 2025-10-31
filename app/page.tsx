@@ -261,12 +261,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="group relative overflow-hidden rounded-lg bg-card"
+                className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-card"
               >
                 <LazyReelVideo
                   src="/reel%201%20new.mp4"
                   poster="/thumbnail-1.png"
-                  className="h-full w-full min-h-[300px]"
+                  className=""
                 />
               </motion.div>
 
@@ -276,12 +276,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="group relative overflow-hidden rounded-lg bg-card"
+                className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-card"
               >
                 <LazyReelVideo
                   src="/reel%202%20new.mp4"
                   poster="/thumbnail-2.png"
-                  className="h-full w-full min-h-[300px]"
+                  className=""
                 />
               </motion.div>
 
@@ -291,12 +291,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="group relative overflow-hidden rounded-lg bg-card"
+                className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-card"
               >
                 <LazyReelVideo
                   src="/reel%203%20new.mp4"
                   poster="/thumbnail-3.png"
-                  className="h-full w-full min-h-[300px]"
+                  className=""
                 />
               </motion.div>
             </div>
