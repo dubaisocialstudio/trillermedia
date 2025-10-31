@@ -214,10 +214,10 @@ export default function Home() {
                 return (
                   <motion.div
                     key={service.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: service.delay }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     className="group relative rounded-lg border border-border/40 bg-card p-6 md:p-8 transition-all hover:border-border hover:shadow-lg"
                   >
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
