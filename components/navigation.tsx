@@ -52,7 +52,7 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 md:border-b md:border-border/40 md:bg-background/80 md:backdrop-blur-sm">
+    <nav className="relative md:fixed top-0 left-0 right-0 z-50 border-b-0 md:border-b md:border-border/40 md:bg-background/80 md:backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="flex h-16 md:h-20 items-center justify-between">
           <a

@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="relative flex min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-6 sm:px-8 -mt-16 md:mt-0 pt-16 md:pt-0">
+      <section id="home" className="relative flex min-h-screen md:min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-6 sm:px-8 md:mt-0 md:pt-0">
         {/* Background Video */}
         <video
           autoPlay
@@ -82,13 +82,13 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] md:drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
+              className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_3px_8px_rgba(0,0,0,0.3)] md:drop-shadow-[0_1px_4px_rgba(0,0,0,0.15)]"
             >
               We make{" "}
-              <span className="text-[#A8C5A4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">brands</span> and{" "}
-              <span className="text-[#A8C5A4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">creators</span>{" "}
+              <span className="text-[#A8C5A4] drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">brands</span> and{" "}
+              <span className="text-[#A8C5A4] drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">creators</span>{" "}
               <span className="text-foreground">look how they</span>{" "}
-              <span className="italic text-[#A8C5A4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">deserve</span>.
+              <span className="italic text-[#A8C5A4] drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">deserve</span>.
             </motion.h1>
 
             <motion.p
