@@ -265,7 +265,7 @@ export default function Home() {
               >
                 <LazyReelVideo
                   src="/reel%201%20new.mp4"
-                  poster="/thumbnail-1.png"
+                  loadOrder={1}
                   className=""
                 />
               </motion.div>
@@ -280,7 +280,7 @@ export default function Home() {
               >
                 <LazyReelVideo
                   src="/reel%202%20new.mp4"
-                  poster="/thumbnail-2.png"
+                  loadOrder={2}
                   className=""
                 />
               </motion.div>
@@ -295,7 +295,7 @@ export default function Home() {
               >
                 <LazyReelVideo
                   src="/reel%203%20new.mp4"
-                  poster="/thumbnail-3.png"
+                  loadOrder={3}
                   className=""
                 />
               </motion.div>

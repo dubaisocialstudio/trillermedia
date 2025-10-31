@@ -2,24 +2,29 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// Global state to track loading order
+let videoLoadQueue: Set<number> = new Set();
+let currentLoadingVideo: number | null = null;
+const videoLoadedCallbacks: Map<number, () => void> = new Map();
+
 interface LazyReelVideoProps {
   src: string;
-  poster?: string; // Optional thumbnail/poster image
   className?: string;
   autoPlay?: boolean;
   loop?: boolean;
   muted?: boolean;
   playsInline?: boolean;
+  loadOrder?: number; // Order in which to load (1, 2, 3, etc.)
 }
 
 export function LazyReelVideo({
   src,
-  poster,
   className = "",
   autoPlay = true,
   loop = true,
   muted = true,
   playsInline = true,
+  loadOrder = 0,
 }: LazyReelVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,65 +32,83 @@ export function LazyReelVideo({
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !shouldLoad) {
-            // Start loading when near viewport (200px before)
-            setShouldLoad(true);
-          }
-        });
-      },
-      { 
-        rootMargin: "200px" // Start loading 200px before entering viewport
+    // Load videos sequentially immediately after page load
+    const checkIfCanLoad = () => {
+      // First video can load immediately
+      if (loadOrder === 1) {
+        if (!videoLoadQueue.has(1)) {
+          setShouldLoad(true);
+          currentLoadingVideo = 1;
+          videoLoadQueue.add(1);
+        }
+      } else {
+        // Check if previous video is loaded
+        const prevLoaded = !videoLoadQueue.has(loadOrder - 1) && currentLoadingVideo !== (loadOrder - 1);
+        if (prevLoaded && currentLoadingVideo === null) {
+          setShouldLoad(true);
+          currentLoadingVideo = loadOrder;
+          videoLoadQueue.add(loadOrder);
+        } else {
+          // Register callback for when previous video loads
+          videoLoadedCallbacks.set(loadOrder - 1, () => {
+            if (currentLoadingVideo === null) {
+              setShouldLoad(true);
+              currentLoadingVideo = loadOrder;
+              videoLoadQueue.add(loadOrder);
+            }
+          });
+        }
       }
-    );
-
-    observer.observe(container);
-
-    return () => {
-      observer.disconnect();
     };
-  }, [shouldLoad]);
+
+    // Small delay to ensure component is mounted, then check
+    const timer = setTimeout(() => {
+      checkIfCanLoad();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [loadOrder]);
 
   useEffect(() => {
-    if (shouldLoad && videoRef.current && autoPlay) {
+    if (shouldLoad && videoRef.current) {
       const video = videoRef.current;
-      video.load(); // Explicitly load the video
-      video.play().catch(() => {
-        // Autoplay failed, ignore silently
-      });
+      video.load();
+      if (autoPlay) {
+        video.play().catch(() => {
+          // Autoplay failed, ignore silently
+        });
+      }
     }
   }, [shouldLoad, autoPlay]);
 
+  const handleLoadedData = () => {
+    setIsLoaded(true);
+    // Mark this video as loaded and trigger next video
+    videoLoadQueue.delete(loadOrder);
+    currentLoadingVideo = null;
+    
+    // Trigger next video if it's waiting
+    const nextCallback = videoLoadedCallbacks.get(loadOrder);
+    if (nextCallback) {
+      nextCallback();
+      videoLoadedCallbacks.delete(loadOrder);
+    }
+  };
+
   return (
     <div ref={containerRef} className={`relative w-full h-full ${className}`}>
-      {/* Always show thumbnail/poster initially */}
-      {poster && (
-        <img
-          src={poster}
-          alt=""
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${shouldLoad && isLoaded ? "opacity-0" : "opacity-100"}`}
-          loading="lazy"
-        />
+      {!isLoaded && (
+        <div className="absolute inset-0 h-full w-full bg-muted/10" />
       )}
-      {!poster && !shouldLoad && (
-        <div className="absolute inset-0 h-full w-full bg-muted/30 animate-pulse" />
-      )}
-      {/* Always render video element, just control loading */}
       <video
         ref={videoRef}
-        autoPlay={shouldLoad ? autoPlay : false}
+        autoPlay={shouldLoad && autoPlay ? autoPlay : false}
         loop={loop}
         muted={muted}
         playsInline={playsInline}
         preload={shouldLoad ? "auto" : "none"}
-        className="absolute inset-0 h-full w-full object-cover"
-        poster={poster}
-        onLoadedData={() => setIsLoaded(true)}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        onLoadedData={handleLoadedData}
       >
         {shouldLoad && <source src={src} type="video/mp4" />}
       </video>
