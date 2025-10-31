@@ -1,65 +1,428 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, MapPin, Sparkles, Users, Globe, Code, Mail } from "lucide-react";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
+const services = [
+  {
+    title: "Personal Branding & UGC Content",
+    description:
+      "Tailored content strategies and creator support that define and elevate your unique identity. We craft narratives that resonate and content that engages.",
+    icon: Sparkles,
+    delay: 0.1,
+  },
+  {
+    title: "UGC Profiles for Creators",
+    description:
+      "Profile building and presentation designed for collaborations. We showcase your work and personality in ways that brands and audiences connect with.",
+    icon: Users,
+    delay: 0.2,
+  },
+  {
+    title: "Web Design",
+    description:
+      "Sleek, functional, and modern websites built to match your brand personality. Every pixel is intentional, every interaction meaningful.",
+    icon: Globe,
+    delay: 0.3,
+  },
+  {
+    title: "Software Design",
+    description:
+      "Smart, user-focused digital tools and experiences. We design software that looks beautiful and works seamlessly, reflecting your brand at every touchpoint.",
+    icon: Code,
+    delay: 0.4,
+  },
+];
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section id="home" className="relative flex min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-6 sm:px-8">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+        >
+          <source src="/reel%201%20.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-background/40" />
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-8 text-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+            >
+              We make{" "}
+              <span className="text-[#A8C5A4]">brands</span> and{" "}
+              <span className="text-[#A8C5A4]">creators</span>{" "}
+              <span className="text-foreground">look how they</span>{" "}
+              <span className="italic text-[#A8C5A4]">deserve</span> to.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl"
+            >
+              Triller Media builds personal brands, UGC content, and digital
+              experiences that stand out.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Button
+                asChild
+                size="lg"
+                className="group h-14 gap-2 rounded-full px-8 text-base"
+              >
+                <a href="#contact">
+                  Work With Us
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
-      </main>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="mx-auto max-w-4xl px-6 py-24 sm:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="space-y-12"
+        >
+          <div className="space-y-6">
+            <div className="flex items-center gap-3 text-sm text-muted-foreground">
+              <MapPin className="h-4 w-4" />
+              <span>Dubai, UAE</span>
+            </div>
+            <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+              About Triller Media
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Triller Media exists to help brands and creators find their
+              identity and presence through creativity and strategy. We believe
+              that every brand and creator deserves to look as good as they are,
+              and we make that happen.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              Based in Dubai, we focus on quality, originality, and design that
+              speaks. Our approach blends strategic thinking with aesthetic
+              excellence, creating work that stands out in an increasingly noisy
+              digital landscape.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              We understand that your brand is more than a logo or website —
+              it's your story, your voice, and your connection with your
+              audience. That's why we craft every detail with intention,
+              ensuring that what we create reflects who you are and where you're
+              going.
+            </motion.p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="border-y border-border/40 bg-muted/20 py-24">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="space-y-16"
+          >
+            <div className="space-y-4 text-center">
+              <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+                Services
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+                We offer comprehensive creative solutions designed to elevate your
+                brand and presence in the digital world.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: service.delay }}
+                    className="group relative rounded-lg border border-border/40 bg-card p-8 transition-all hover:border-border hover:shadow-lg"
+                  >
+                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                      <Icon className="h-6 w-6 text-accent-foreground" />
+                    </div>
+                    <h3 className="mb-4 text-2xl font-semibold">
+                      {service.title}
+                    </h3>
+                    <p className="leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Work Section */}
+      <section id="work" className="border-y border-border/40 bg-muted/20 py-24">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="space-y-16"
+          >
+            <div className="space-y-4 text-center">
+              <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+                Work
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Showcasing successful projects, collaborations, and design work.
+              </p>
+            </div>
+
+            {/* Reel Grid */}
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {/* Reel 1 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="group relative overflow-hidden rounded-lg bg-card"
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover"
+                >
+                  <source src="/reel%201%20.mp4" type="video/mp4" />
+                </video>
+              </motion.div>
+
+              {/* Reel 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="group relative overflow-hidden rounded-lg bg-card"
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover"
+                >
+                  <source src="/reel%202.mp4" type="video/mp4" />
+                </video>
+              </motion.div>
+
+              {/* Reel 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="group relative overflow-hidden rounded-lg bg-card"
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover"
+                >
+                  <source src="/reel%203.mp4" type="video/mp4" />
+                </video>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="mx-auto max-w-3xl px-6 py-24 sm:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="space-y-16"
+        >
+          <div className="space-y-6 text-center">
+            <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
+              Contact
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              Let's build something that turns heads.
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-2">
+                <Label
+                  htmlFor="name"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Name
+                </Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                  className="h-14 rounded-lg border border-border/50 bg-muted/30 px-4 text-base transition-all placeholder:text-muted-foreground/60 focus:border-foreground/50 focus:bg-background focus-visible:ring-2 focus-visible:ring-foreground/20"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label
+                  htmlFor="email"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your.email@example.com"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                  className="h-14 rounded-lg border border-border/50 bg-muted/30 px-4 text-base transition-all placeholder:text-muted-foreground/60 focus:border-foreground/50 focus:bg-background focus-visible:ring-2 focus-visible:ring-foreground/20"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label
+                  htmlFor="message"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Message
+                </Label>
+                <Textarea
+                  id="message"
+                  placeholder="Tell us about your project..."
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  required
+                  rows={6}
+                  className="min-h-[140px] resize-none rounded-lg border border-border/50 bg-muted/30 px-4 py-3 text-base transition-all placeholder:text-muted-foreground/60 focus:border-foreground/50 focus:bg-background focus-visible:ring-2 focus-visible:ring-foreground/20"
+                />
+              </div>
+
+              <div className="flex justify-end pt-2">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="group h-14 gap-2 rounded-full px-8 text-base font-medium"
+                >
+                  Send Message
+                  <Mail className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center text-muted-foreground"
+          >
+            <p>Based in Dubai, UAE</p>
+            <p className="mt-2">
+              We typically respond within 24-48 hours.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
     </div>
   );
 }

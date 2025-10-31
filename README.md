@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Triller Media Website
+
+A modern, minimal, and high-end website for Triller Media, a Dubai-based creative agency focused on helping brands and creators look as good as they deserve.
+
+## Features
+
+- **Modern Stack**: Built with Next.js 15, TypeScript, and Tailwind CSS
+- **Luxury Design**: Sleek, confident aesthetic with strong typography and structured spacing
+- **Smooth Animations**: Framer Motion for page transitions and micro-interactions
+- **Responsive**: Fully responsive design optimized for all devices
+- **SEO Optimized**: Server-side rendering and proper meta tags
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router) with React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide Icons
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ and npm
+
+### Installation
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+trillermedia/
+├── app/
+│   ├── about/          # About page
+│   ├── clients/        # Clients & Partners page
+│   ├── contact/        # Contact page
+│   ├── services/       # Services page
+│   ├── work/           # Work/Portfolio page
+│   ├── globals.css     # Global styles and theme
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Home page
+├── components/
+│   ├── navigation.tsx  # Navigation component
+│   ├── footer.tsx      # Footer component
+│   └── ui/             # shadcn/ui components
+└── lib/
+    └── utils.ts        # Utility functions
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Vercel (Recommended)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Import your repository to [Vercel](https://vercel.com)
+3. Vercel will automatically detect Next.js and configure the build settings
+4. Deploy!
 
-## Deploy on Vercel
+The site will be live with:
+- Automatic HTTPS
+- Global CDN
+- Automatic deployments on push
+- Preview deployments for PRs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Build for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+```
+
+The optimized production build will be in the `.next` folder.
+
+## Customization
+
+### Colors
+
+The luxury color palette is defined in `app/globals.css`:
+- **Matte Black**: Primary text and buttons
+- **Off-White**: Background and primary foreground
+- **Metallic Tones**: Accent colors for highlights
+
+### Typography
+
+The site uses Geist Sans and Geist Mono fonts from Next.js, optimized for readability and luxury aesthetics.
+
+## License
+
+© 2024 Triller Media. All rights reserved.
