@@ -93,10 +93,10 @@ export default function Home() {
               className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
             >
               We make{" "}
-              <span className="text-[#A8C5A4] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">brands</span> and{" "}
-              <span className="text-[#A8C5A4] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">creators</span>{" "}
+              <span className="text-[#5B9FFF] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">brands</span> and{" "}
+              <span className="text-[#5B9FFF] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">creators</span>{" "}
               <span className="text-foreground">look how they</span>{" "}
-              <span className="italic text-[#A8C5A4] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">deserve</span>.
+              <span className="italic text-[#5B9FFF] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">deserve</span>.
             </motion.h1>
 
             <motion.p
