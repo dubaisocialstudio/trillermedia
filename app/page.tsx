@@ -212,12 +212,8 @@ export default function Home() {
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <motion.div
+                  <div
                     key={service.title}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
                     className="group relative rounded-lg border border-border/40 bg-card p-6 md:p-8 transition-all hover:border-border hover:shadow-lg"
                   >
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
@@ -229,7 +225,7 @@ export default function Home() {
                     <p className="leading-relaxed text-muted-foreground">
                       {service.description}
                     </p>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
