@@ -52,18 +52,20 @@ export function Navigation() {
   };
 
   return (
-    <nav className="relative md:fixed top-0 left-0 right-0 z-50 border-b-0 md:border-b md:border-border/40 md:bg-background/80 md:backdrop-blur-sm">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="flex h-16 md:h-20 items-center justify-between">
-          <a
-            href="#home"
-            onClick={(e) => handleClick(e, "#home")}
-            className="text-lg md:text-xl font-semibold tracking-tight text-foreground"
-          >
-            Triller Media
-          </a>
-          
-          <div className="hidden items-center gap-8 md:flex">
+    <>
+      {/* Desktop: Full navigation */}
+      <nav className="hidden md:flex fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-sm">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 w-full">
+          <div className="flex h-20 items-center justify-between">
+            <a
+              href="#home"
+              onClick={(e) => handleClick(e, "#home")}
+              className="text-xl font-semibold tracking-tight text-foreground"
+            >
+              Triller Media
+            </a>
+            
+            <div className="flex items-center gap-8">
             {navItems.map((item) => {
               const sectionId = item.href.substring(1);
               const isActive = activeSection === sectionId;
@@ -94,9 +96,10 @@ export function Navigation() {
                 </a>
               );
             })}
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
