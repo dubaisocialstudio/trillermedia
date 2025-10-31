@@ -90,7 +90,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl font-bold leading-tight tracking-tight sm:text-5xl md:text-7xl lg:text-8xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
+              className="text-[2.5rem] font-bold leading-tight tracking-tight sm:text-5xl md:text-7xl lg:text-8xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
             >
               <span className="block md:inline">We make{" "}
               <span className="text-[#5B9FFF] drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">brands</span></span>{" "}
